@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light only">
-<meta name="theme-color" content="#CFC0EA">
+<meta name="theme-color" content="#FAF8F3">
 <title>喚靈珠｜首次諮詢申請表</title>
 <meta name="description" content="喚靈珠｜玄鈺老師 — 首次諮詢預約前資料填寫">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +20,9 @@
     --card:       #FFFFFF;
     --purple:     #8E7C97;   /* 莫蘭迪紫（主） */
     --purple-soft:#EDE8F0;   /* 莫蘭迪紫（淡，選中底色） */
-    --ink:        #33364A;   /* 品牌深紫（主標） */
+    --ink:        #353B55;   /* 品牌深紫（主標） */
     --ink-mid:    #565D79;   /* 深紫灰（小標） */
-    --ink-soft:   #4F5268;   /* 深灰（內文） */
+    --ink-soft:   #4F5568;   /* 深灰（內文） */
     --gold:       #C4AC7C;   /* 金（收斂） */
     --gold-soft:  #D8C7A3;
     --line:       #E9E3DA;   /* 分隔線 */
@@ -34,19 +34,14 @@
   :root{ color-scheme:light only; }
 
   html{
-    margin:0;
-    padding:0;
     -webkit-text-size-adjust:100%;
-    background:#CFC0EA !important;  /* 與 Header 頂部同色，安全區不留白 */
-    overscroll-behavior-y:none;     /* 消除頂端回彈露白 */
+    background:#FAF8F3 !important;
   }
 
   body{
-    margin:0;
     background:#FAF8F3 !important;
     color:var(--ink-soft);
-    font-family:"Noto Serif TC", "Songti TC", "PMingLiU", serif;
-    font-weight:600;
+    font-family:'Noto Serif TC', "Songti TC", "PingFang TC", serif;
     font-size:16px;
     line-height:1.8;
     letter-spacing:.02em;
@@ -59,26 +54,10 @@
   body::before{
     content:"";
     position:fixed;
-    top:env(safe-area-inset-top);
-    left:0;
-    right:0;
-    bottom:0;
+    inset:0;
     z-index:-1;
     background:#FAF8F3;
     pointer-events:none;
-  }
-
-  /* 頂端安全區色帶（無瀏海裝置高度為 0，不影響版面） */
-  body::after{
-    content:"";
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    height:env(safe-area-inset-top);
-    background:#CFC0EA;
-    pointer-events:none;
-    z-index:5;
   }
 
   .wrap{
@@ -92,11 +71,11 @@
   /* 即使環境強制深色模式，也維持同一套淺色 */
   @media (prefers-color-scheme: dark){
     html, body, body::before{ background:#FAF8F3 !important; }
-    body{ color:#4F5268; }
+    body{ color:#4F5568; }
     section{ background:#FFFFFF !important; }
     input[type="text"], input[type="email"], input[type="date"], textarea{
       background:#FFFFFF !important;
-      color:#33364A !important;
+      color:#353B55 !important;
     }
     .chips label{ background:#FFFFFF; color:#4B4466; }
     .chips input:checked + label{ background:#7463A8; color:#FFFFFF; }
@@ -115,20 +94,9 @@
     max-width:none;
     margin:0 -24px;
     text-align:center;
-    padding:calc(26px + env(safe-area-inset-top)) 24px 24px;
+    padding:26px 24px 24px;
     background:linear-gradient(to bottom, #CFC0EA 0%, #DCD0F1 48%, #E9E2F5 78%, #F1EBF8 100%);
     position:relative;
-  }
-  /* iPhone Safari／LINE 內建瀏覽器：頂端安全區以品牌紫填滿，不留白框 */
-  header::before{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:100%;
-    height:200px;
-    background:#CFC0EA;
-    pointer-events:none;
   }
   header::after{
     content:"";
@@ -149,8 +117,8 @@
   }
   .motto{
     margin-top:12px;
-    font-family:"Noto Serif TC", "Songti TC", "PMingLiU", serif;
-    font-weight:700;
+    font-family:'Noto Serif TC', serif;
+    font-weight:600;
     font-size:16px;
     letter-spacing:.24em;
     color:#3E3760;
@@ -166,7 +134,7 @@
     opacity:.6;
   }
   .brand-name{
-    font-family:"Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    font-family:'Noto Serif TC', serif;
     font-weight:500;
     font-size:11px;
     letter-spacing:.24em;
@@ -182,23 +150,16 @@
     margin-top:44px;
   }
   .page-title h2{
-    font-family:"Noto Serif TC", "Songti TC", "PMingLiU", serif;
-    font-weight:700;
+    font-family:'Noto Serif TC', serif;
+    font-weight:600;
     font-size:21px;
     letter-spacing:.12em;
-    color:#33364A;
-  }
-  .page-title .price-line{
-    margin-top:12px;
-    font-size:14px;
-    font-weight:700;
-    letter-spacing:.1em;
-    color:#7463A8;
+    color:#353B55;
   }
   .page-title p{
     margin-top:18px;
     font-size:15px;
-    color:#4F5268;
+    color:#4F5568;
   }
 
   /* ---------- 念珠式分區記號（品牌識別）----------
@@ -217,23 +178,16 @@
     margin-bottom:30px;
   }
   .sec-title{
-    font-family:"Noto Serif TC", "Songti TC", "PMingLiU", serif;
-    font-weight:700;
+    font-family:'Noto Serif TC', serif;
+    font-weight:600;
     font-size:17.5px;
     letter-spacing:.1em;
     margin-bottom:4px;
-    color:#33364A;
-  }
-  .sec-title::before{
-    content:"✦";
-    margin-right:8px;
-    color:#C4AC7C;
-    font-size:.86em;
-    vertical-align:1px;
+    color:#565D79;
   }
   .sec-note{
     font-size:13.5px;
-    color:#4F5268;
+    color:#4F5568;
     margin-bottom:16px;
   }
 
@@ -243,9 +197,9 @@
   label.f-label{
     display:block;
     font-size:14.5px;
-    font-weight:600;
+    font-weight:500;
     margin-bottom:8px;
-    color:#4F5268;
+    color:#565D79;
   }
   .req{
     display:inline-block;
@@ -269,7 +223,7 @@
     max-width:100%;
     font:inherit;
     font-size:16px;               /* 16px 以上，iPhone 不會自動放大 */
-    color:#33364A;
+    color:#353B55;
     background:#FFFFFF;
     border:1px solid #D8D2E6;
     border-radius:16px;
@@ -280,7 +234,7 @@
     appearance:none;
     min-height:52px;
   }
-  input::placeholder, textarea::placeholder{ color:#8E91A5; }
+  input::placeholder, textarea::placeholder{ color:#9A9AAF; }
   input:focus, textarea:focus{
     border-color:#7463A8;
     box-shadow:0 0 0 3px rgba(116,99,168,.14);
@@ -297,7 +251,7 @@
     min-width:0;
     font:inherit;
     font-size:16px;
-    color:#33364A;
+    color:#353B55;
     background:#FFFFFF url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239A9AAF' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;
     border:1px solid #D8D2E6;
     border-radius:16px;
@@ -314,7 +268,7 @@
     box-shadow:0 0 0 3px rgba(116,99,168,.14);
   }
   .date-selects select:invalid,
-  .date-selects select option[value=""]{ color:#8E91A5; }
+  .date-selects select option[value=""]{ color:#9A9AAF; }
   .field.invalid .date-selects select{ border-color:#C48B85; }
 
   /* ---------- 選項（單選 / 複選）膠囊 ---------- */
@@ -333,7 +287,6 @@
     min-height:42px;              /* iPhone 好按的觸控尺寸 */
     padding:9px 18px;
     font-size:15px;
-    font-weight:600;
     color:#4B4466;
     background:#FFFFFF;
     border:1px solid #D8D2E6;
@@ -363,18 +316,17 @@
     position:relative;
     padding-left:18px;
     font-size:14.5px;
-    color:#4F5268;
+    color:#4F5568;
     margin-bottom:10px;
   }
   .notice li:last-child{ margin-bottom:0; }
   .notice li::before{
-    content:"✓";
+    content:"";
     position:absolute;
-    left:0; top:0;
-    color:#C4AC7C;
-    font-size:13.5px;
-    font-weight:600;
-    line-height:inherit;
+    left:0; top:.72em;
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--gold-soft);
   }
 
   /* ---------- 送出 ---------- */
@@ -387,7 +339,7 @@
     min-height:56px;
     font:inherit;
     font-size:16.5px;
-    font-weight:600;
+    font-weight:500;
     letter-spacing:.14em;
     color:#FFF;
     background:#7463A8;
@@ -404,8 +356,7 @@
   .submit-hint{
     text-align:center;
     font-size:13px;
-    line-height:1.9;
-    color:#4F5268;
+    color:#4F5568;
     margin-top:14px;
   }
 
@@ -425,18 +376,18 @@
     padding:104px 8px 48px;
   }
   #done h2{
-    font-family:"Noto Serif TC", "Songti TC", "PMingLiU", serif;
-    font-weight:700;
+    font-family:'Noto Serif TC', serif;
+    font-weight:600;
     font-size:22px;
     letter-spacing:.14em;
     margin-bottom:22px;
   }
   #done p{
     font-size:15.5px;
-    color:#4F5268;
+    color:#4F5568;
     line-height:2.15;
   }
-  #done h2{ color:#33364A; }
+  #done h2{ color:#353B55; }
   #done .done-tip{
     margin-top:32px;
     font-size:13.5px;
@@ -497,14 +448,14 @@
     </header>
 
     <div class="page-title">
-      <h2>新朋友體驗諮詢申請</h2>
-      <p class="price-line">30 分鐘｜初次體驗</p>
+      <h2>首次諮詢申請表</h2>
       <p>
-        第一次來，<br>
-        不用急著把所有問題一次說完。<br><br>
-        先把最近最卡、最想整理的一件事寫下來。<br><br>
-        玄鈺老師會先了解你的近況，<br>
-        讓後續的諮詢更聚焦、更有方向。
+        歡迎加入喚靈珠官方 LINE。<br><br>
+        正式安排首次諮詢前，<br>
+        請先花約 3～5 分鐘填寫以下資料。<br><br>
+        老師會先了解你的近況，<br>
+        讓這次諮詢更聚焦，<br>
+        也更有方向。
       </p>
     </div>
 
@@ -585,7 +536,7 @@
           <p class="sec-note">簡單描述目前的狀況即可，不用寫得很完整。</p>
           <div class="field">
             <label class="f-label" for="trouble" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">最近最大的困擾</label>
-            <textarea id="trouble" name="最近最大困擾" placeholder="例如：工作卡了很久、一段關係讓你很消耗……"></textarea>
+            <textarea id="trouble" name="最近最大的困擾" placeholder="例如：工作卡了很久、一段關係讓你很消耗……"></textarea>
           </div>
         </section>
 
@@ -595,7 +546,7 @@
           <p class="sec-note">寫下你最想在這 30 分鐘裡得到的東西。</p>
           <div class="field">
             <label class="f-label" for="expect" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">希望老師協助你什麼</label>
-            <textarea id="expect" name="希望老師協助什麼" placeholder="例如：想知道該不該換工作、想釐清這段感情的方向……"></textarea>
+            <textarea id="expect" name="希望老師協助" placeholder="例如：想知道該不該換工作、想釐清這段感情的方向……"></textarea>
           </div>
         </section>
 
@@ -613,10 +564,10 @@
           <h3 class="sec-title">注意事項</h3>
           <div class="notice">
             <ul>
-              <li>本次採 Google Meet 視訊</li>
-              <li>諮詢時間約 30 分鐘</li>
-              <li>完成付款後安排諮詢時間</li>
-              <li>若需改期請提前告知</li>
+              <li>本次採 Google Meet 視訊。</li>
+              <li>諮詢時間約 30 分鐘。</li>
+              <li>完成付款後安排時間。</li>
+              <li>若需改期請提前告知。</li>
             </ul>
           </div>
         </section>
@@ -624,8 +575,8 @@
       </div>
 
       <div class="submit-area">
-        <button type="submit" class="submit" id="submitBtn">送出資料，前往付款</button>
-        <p class="submit-hint">送出後，<br>下一步會帶你前往完成付款。<br><br>完成後，<br>玄鈺老師會再與你聯繫，<br>一起安排諮詢時間 🌿</p>
+        <button type="submit" class="submit" id="submitBtn">送出申請</button>
+        <p class="submit-hint">送出後，老師會透過官方 LINE 與你聯繫</p>
       </div>
     </form>
 
@@ -653,7 +604,7 @@
     </p>
   </div>
 
-  <footer>玄鈺老師 © 2026</footer>
+  <footer>喚靈珠｜玄鈺老師 © 2026</footer>
 </div>
 
 <script>
@@ -666,7 +617,7 @@
    3. 資料會以 JSON 形式 POST 過去（no-cors 模式，GAS 標準做法）
    GAS_URL 留空時，僅在前端顯示成功畫面（方便先上線測試 UI）。
    ============================================================ */
-const GAS_URL = "https://script.google.com/macros/s/AKfycbxzHE_2HrF8fNANsHjFp19BaCi1rgncyZ6QfuTzZEsairaK8N7G5Le7uOlp86HiPGBwBA/exec";
+const GAS_URL = ""; // 例："https://script.google.com/macros/s/XXXX/exec"
 
 const form      = document.getElementById("bookingForm");
 const submitBtn = document.getElementById("submitBtn");
@@ -722,16 +673,11 @@ form.addEventListener("submit", async (e) => {
 
   try{
     if(GAS_URL){
-      const params = new URLSearchParams();
-      Object.entries(data).forEach(([key, value]) => {
-        params.append(key, value ?? "");
-      });
-
       await fetch(GAS_URL, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body: params.toString()
+        mode: "no-cors", // GAS 網頁應用程式的標準串接方式
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(data)
       });
     }
     showDone();
