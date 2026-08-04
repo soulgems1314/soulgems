@@ -665,12 +665,8 @@
    2. 貼到下方 GAS_URL
    3. 資料會以 JSON 形式 POST 過去（no-cors 模式，GAS 標準做法）
    GAS_URL 留空時，僅在前端顯示成功畫面（方便先上線測試 UI）。
-   送出完成後會自動導向 PAY_URL 付款頁。
    ============================================================ */
 const GAS_URL = "https://script.google.com/macros/s/AKfycbxzHE_2HrF8fNANsHjFp19BaCi1rgncyZ6QfuTzZEsairaK8N7G5Le7uOlp86HiPGBwBA/exec";
-
-/* 送出完成後前往的 NT$199 付款頁 */
-const PAY_URL = "https://pl.sl-pay.com/pJBLAyXB";
 
 const form      = document.getElementById("bookingForm");
 const submitBtn = document.getElementById("submitBtn");
@@ -738,12 +734,10 @@ form.addEventListener("submit", async (e) => {
         body: params.toString()
       });
     }
-    // 資料送出完成，直接前往付款頁（不停留於成功畫面）
-    submitBtn.textContent = "前往付款頁…";
-    window.location.href = PAY_URL;
+    showDone();
   }catch(err){
     submitBtn.disabled = false;
-    submitBtn.textContent = "送出資料，前往付款";
+    submitBtn.textContent = "送出申請";
     alert("送出時發生問題，請再試一次，或直接透過 LINE 告知老師。");
   }
 });
