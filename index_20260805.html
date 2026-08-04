@@ -716,34 +716,36 @@ function showDone(){
   window.scrollTo({ top:0, behavior:"instant" in window ? "instant" : "auto" });
 }
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if(!validate()) return;
 
   const data = collectData();
   submitBtn.disabled = true;
-  submitBtn.textContent = "前往付款頁…";
+  submitBtn.textContent = "送出中…";
 
-  if(GAS_URL){
-    const params = new URLSearchParams();
-    Object.entries(data).forEach(([key, value]) => {
-      params.append(key, value ?? "");
-    });
+  try{
+    if(GAS_URL){
+      const params = new URLSearchParams();
+      Object.entries(data).forEach(([key, value]) => {
+        params.append(key, value ?? "");
+      });
 
-    // 不等待 Apps Script 回應，送出後即進入倒數跳轉
-    fetch(GAS_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-      },
-      body: params.toString()
-    });
+      await fetch(GAS_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body: params.toString()
+      });
+    }
+    // 資料送出完成，直接前往付款頁（不停留於成功畫面）
+    submitBtn.textContent = "前往付款頁…";
+    window.location.href = PAY_URL;
+  }catch(err){
+    submitBtn.disabled = false;
+    submitBtn.textContent = "送出資料，前往付款";
+    alert("送出時發生問題，請再試一次，或直接透過 LINE 告知老師。");
   }
-
-  setTimeout(function () {
-    window.location.replace(PAY_URL);
-  }, 1200);
 });
 
 // 即時解除錯誤提示
